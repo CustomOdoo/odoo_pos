@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_product_tags,product.tags,model_product_tags,base.group_user,1,0,0,0
+access_product_tags_manager,product.tags.manager,model_product_tags,dev_product_tags.group_product_tags_manager,1,1,1,1
+
+
+
+
+
+
+
+
