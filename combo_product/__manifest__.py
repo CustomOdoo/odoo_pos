@@ -1,9 +1,9 @@
 {
     'name': 'Combo Product',
     'category': 'Product',
-    'author': 'TechnoSquare',
-    'website': "http://www.technosquare.in",
-    "support": "info@technosquare.in",
+    'author': 'SPH Consult',
+    'website': "http://www.swahilipothub.co.ke",
+    "support": "info@swahilipothub.co.ke",
     'version': '1.0',
     'description':
         """

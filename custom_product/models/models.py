@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.addons import decimal_precision as dp
+from odoo.exceptions import ValidationError
 
 
-class CustomProductType(models.Model):
-    _name = 'custom.product.type'
-    _description = 'Product Type'
+class CustomProductTag(models.Model):
+    _name = 'custom.product.tag'
+    _description = 'Product Tag'
 
-    name = fields.Char('Name', required=True, translate=True)
+    name = fields.Char('Tag Name', required=True, translate=True)
 
 
-class CustomProduct(models.Model):
-	_inherit = 'product.product'
+class CustomProductTemplate(models.Model):
+	_inherit = 'product.template'
 
-	barcode = fields.Char('SKU')
-	custom_product_type = fields.Many2one('custom.product.type', string='Custom Product Type')
+	product_tag = fields.Many2one('custom.product.tag',string='Product Tag')
+	retail_price = fields.Float('Retail Price', 
+								digits=dp.get_precision('Product Price'), 
+								help="Retail price.")
 
 
 # class CustomProductPackaging(models.Model):
