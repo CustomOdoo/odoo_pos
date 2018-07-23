@@ -17,6 +17,9 @@ class CustomProductTemplate(models.Model):
 
 	product_tag = fields.Many2one('custom.product.tag',string='Product Tag')
 	packing_size = fields.Char('Packing Size')
-	# retail_price = fields.Float('Retail Price', 
-	# 							digits=dp.get_precision('Product Price'), 
-	# 							help="Retail price.")
+	whole_sale_price = fields.Float('Whole Sale Price', 
+								digits=dp.get_precision('Product Price'), 
+								help="Whole Sale price.")
+	requisition_price = fields.Float('Requisition Price', 
+								digits=dp.get_precision('Product Price'), 
+								help="Requisition price.")

@@ -15,9 +15,13 @@
                 <field name="packing_size"/>
             </xpath>
 
-            <!-- <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
-                <field name="retail_price"/>
-            </xpath> -->
+            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+                <field name="whole_sale_price"/>
+            </xpath>
+
+            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+                <field name="requisition_price"/>
+            </xpath>
 
         </field>
     </record>
