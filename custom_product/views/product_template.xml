@@ -11,9 +11,9 @@
                 <field name="product_tag"/>
             </xpath>
 
-            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+            <!-- <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
                 <field name="retail_price"/>
-            </xpath>
+            </xpath> -->
 
         </field>
     </record>
@@ -36,7 +36,7 @@
         </field>
     </record>
 
-    <record id="product_retailprice_normal_form_view" model="ir.ui.view">
+    <!-- <record id="product_retailprice_normal_form_view" model="ir.ui.view">
         <field name="name">product.product.retailprice.form</field>
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view"/>
@@ -47,7 +47,7 @@
             </xpath>
 
         </field>
-    </record>
+    </record> -->
 
   </data>
 </odoo>
