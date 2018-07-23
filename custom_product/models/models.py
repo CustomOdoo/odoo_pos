@@ -16,6 +16,7 @@ class CustomProductTemplate(models.Model):
 	_inherit = 'product.template'
 
 	product_tag = fields.Many2one('custom.product.tag',string='Product Tag')
+	packing_size = fields.Char('Packing Size')
 	# retail_price = fields.Float('Retail Price', 
 	# 							digits=dp.get_precision('Product Price'), 
 	# 							help="Retail price.")

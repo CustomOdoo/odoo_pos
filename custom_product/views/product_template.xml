@@ -11,6 +11,10 @@
                 <field name="product_tag"/>
             </xpath>
 
+            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+                <field name="packing_size"/>
+            </xpath>
+
             <!-- <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
                 <field name="retail_price"/>
             </xpath> -->
