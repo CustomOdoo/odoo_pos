@@ -5,6 +5,7 @@
         <field name="name">custom.product.template.view</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
+
         <field name="arch" type="xml">
 
             <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="before">
@@ -24,7 +25,32 @@
             </xpath>
 
         </field>
+
     </record>
+
+    <!-- <record id="custom_product_template_view_retail" model="ir.ui.view">
+        <field name="name">custom.product.template.view.retail</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+
+        <field name="arch" type="xml">
+            <field name="list_price" position="attributes">
+                <attribute name="string">Retail Price</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="custom_product_template_view_uom" model="ir.ui.view">
+        <field name="name">custom.product.template.view.uom</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+
+        <field name="arch" type="xml">
+            <field name="uom_po_id" position="attributes">
+                <attribute name="string">Package Type</attribute>
+            </field>
+        </field>
+    </record> -->
     
     <record id="custom_product_tag_view" model="ir.ui.view">
         <field name="name">custom.product.tag.view</field>
@@ -43,19 +69,6 @@
             </form>
         </field>
     </record>
-
-    <!-- <record id="product_retailprice_normal_form_view" model="ir.ui.view">
-        <field name="name">product.product.retailprice.form</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_normal_form_view"/>
-        <field name="arch" type="xml">
-
-            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
-                <field name="retail_price"/>
-            </xpath>
-
-        </field>
-    </record> -->
 
   </data>
 </odoo>

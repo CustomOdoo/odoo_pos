@@ -23,3 +23,6 @@ class CustomProductTemplate(models.Model):
 	requisition_price = fields.Float('Requisition Price', 
 								digits=dp.get_precision('Product Price'), 
 								help="Requisition price.")
+	list_price = fields.Float(string="Retail Price")
+	uom_po_id = fields.Many2one(string="Package Type")
+	# type = fields.Selection(default='product')

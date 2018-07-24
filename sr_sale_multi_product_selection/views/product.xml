@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Created new Form View for wizard-->
+    <record id="sr_form_view_create_sale_quotation_wizard" model="ir.ui.view">
+        <field name="name">sr.form.view.create.sale.quotation.wizard</field>
+        <field name="model">sr.create.quotation</field>
+        <field name="arch" type="xml">
+            <form string="Create Sale Quotations">
+                <group>
+                    <field name="partner_id"/>
+                </group>
+                <footer>
+                    <button class="btn-primary" name="create_quotation" type="object" string="Create Sale Quotation"/>
+                    Or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <act_window id="sr_action_create_sale_quotation"
+                multi="True"
+                key2="client_action_multi" name="Create Sales Quotations"
+                res_model="sr.create.quotation" src_model="product.product"
+                view_mode="form" target="new" view_type="form"/>
+
+
+</odoo>

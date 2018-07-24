@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Created new Form View for wizard-->
+    <record id="sr_form_view_select_multi_product_wizard" model="ir.ui.view">
+        <field name="name">sr.form.view.select.multi.product.wizard</field>
+        <field name="model">sr.multi.product</field>
+        <field name="arch" type="xml">
+            <form string="Select Multiple product">
+                <group>
+                    <field name="product_ids" nolabel="1">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button class="btn-primary" name="add_product" type="object" string="Apply"/>
+                    Or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Created new action for wizard-->
+    <record id="action_select_multi_product_wizard" model="ir.actions.act_window">
+        <field name="name">Select Multiple Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sr.multi.product</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Inherit Sale Form View to Modify it -->
+    <record id="sr_view_order_form_inherit_add_multi_product_selection_button" model="ir.ui.view">
+        <field name="name">sr_view.order.form.inherit.add.multi.product.selection.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="%(action_select_multi_product_wizard)d" type="action" class="btn-primary"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}" string="Select Product"/>
+            </header>
+
+        </field>
+    </record>
+</odoo>
