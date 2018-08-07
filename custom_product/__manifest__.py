@@ -23,12 +23,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product'],
+    'depends': ['base', 'product', 'sale', 'account'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/product_template.xml',
+        'views/promotion_product.xml',
+        'views/sale_promotion_rule.xml',
+        'views/sale_order.xml',
+        # 'security/ir.model.access.csv',
         # 'views/product_list.xml',
     ],
     # only loaded in demonstration mode
