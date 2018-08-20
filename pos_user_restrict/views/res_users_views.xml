@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="res_users_form_view_inherit_pos_user_restrict" model="ir.ui.view">
+        <field name="name">res.users.view.form.inherit.pos.user.restrict</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="point_of_sale.res_users_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="before">
+                <field name="pos_config_ids"
+                    widget="many2many_tags"
+                    groups="point_of_sale.group_pos_user"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
