@@ -15,14 +15,12 @@ class CustomProductTag(models.Model):
 class CustomProductTemplate(models.Model):
 	_inherit = 'product.template'
 
-	product_tag = fields.Many2one('custom.product.tag',string='Product Tag')
+	product_tag = fields.Many2one('custom.product.tag',string='Local / Dynamix')
 	packing_size = fields.Char('Packing Size')
-	whole_sale_price = fields.Float('Whole Sale Price', 
-								digits=dp.get_precision('Product Price'), 
-								help="Whole Sale price.")
 	requisition_price = fields.Float('Requisition Price', 
 								digits=dp.get_precision('Product Price'), 
 								help="Requisition price.")
-	list_price = fields.Float(string="Retail Price")
-	uom_po_id = fields.Many2one(string="Package Type")
+	list_price = fields.Float(string="Wholesale Price")
+	uom_id = fields.Many2one(string="Units in Carton (used for selling)")
+	uom_po_id = fields.Many2one(string="Units in Carton (used for purchase)")
 	# type = fields.Selection(default='product')
