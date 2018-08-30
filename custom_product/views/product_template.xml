@@ -16,9 +16,9 @@
                 <field name="packing_size"/>
             </xpath>
 
-            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+            <!-- <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
                 <field name="requisition_price"/>
-            </xpath>
+            </xpath> -->
 
             <xpath expr="//page[@name='general_information']//field[@name='type']" position="attributes">
                <field name="type" position="attributes">
@@ -28,6 +28,12 @@
 
             <xpath expr="//page[@name='general_information']//field[@name='company_id']" position="attributes">
                <field name="company_id" position="attributes">
+                 <attribute name="invisible">1</attribute>
+               </field>
+            </xpath>
+
+            <xpath expr="//page[@name='general_information']//field[@name='uom_po_id']" position="attributes">
+               <field name="uom_po_id" position="attributes">
                  <attribute name="invisible">1</attribute>
                </field>
             </xpath>

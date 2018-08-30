@@ -17,10 +17,10 @@ class CustomProductTemplate(models.Model):
 
 	product_tag = fields.Many2one('custom.product.tag',string='Local / Dynamix')
 	packing_size = fields.Char('Packing Size')
-	requisition_price = fields.Float('Requisition Price', 
-								digits=dp.get_precision('Product Price'), 
-								help="Requisition price.")
+	# requisition_price = fields.Float('Requisition Price', 
+	# 							digits=dp.get_precision('Product Price'), 
+	# 							help="Requisition price.")
 	list_price = fields.Float(string="Wholesale Price")
-	uom_id = fields.Many2one(string="Units in Carton (used for selling)")
-	uom_po_id = fields.Many2one(string="Units in Carton (used for purchase)")
+	uom_id = fields.Many2one(string="Units/Case")
+	uom_po_id = fields.Many2one(string="Units/Case")
 	# type = fields.Selection(default='product')
