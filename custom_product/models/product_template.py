@@ -21,6 +21,6 @@ class CustomProductTemplate(models.Model):
 	# 							digits=dp.get_precision('Product Price'), 
 	# 							help="Requisition price.")
 	list_price = fields.Float(string="Wholesale Price")
-	uom_id = fields.Many2one(string="Units/Case")
+	uom_id = fields.Many2one(string="Units/Case for sale")
 	uom_po_id = fields.Many2one(string="Units/Case")
 	# type = fields.Selection(default='product')
