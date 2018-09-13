@@ -8,9 +8,9 @@
 
         <field name="arch" type="xml">
 
-            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="before">
+            <!-- <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="before">
                 <field name="product_tag"/>
-            </xpath>
+            </xpath> -->
 
             <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
                 <field name="packing_size"/>
@@ -32,11 +32,11 @@
                </field>
             </xpath>
 
-            <!-- <xpath expr="//page[@name='general_information']//field[@name='uom_po_id']" position="attributes">
-               <field name="uom_po_id" position="attributes">
+            <xpath expr="//page[@name='general_information']//field[@name='uom_id']" position="attributes">
+               <field name="uom_id" position="attributes">
                  <attribute name="invisible">1</attribute>
                </field>
-            </xpath> -->
+            </xpath>
 
         </field>
 
