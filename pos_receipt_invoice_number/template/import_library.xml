@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="pos_receipt_invoice_number" name="pos_receipt_invoice_number assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_receipt_invoice_number/static/src/js/pos_receipt_invoice_number.js"/>
+            <link rel="stylesheet" href="/pos_receipt_invoice_number/static/src/css/pos_receipt_invoice_number.css"/>
+        </xpath>
+    </template>
+</odoo>
