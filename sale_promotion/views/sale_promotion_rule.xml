@@ -121,7 +121,9 @@
         </record>
 
         <menuitem name="Sale Promotions" id="sale_promotion_menu"
-                  parent="sale.sale_menu_root" sequence="3" />
-        <menuitem name="Sale Promotions" id="sale_promotion_child_menu" action="action_sale_promotion_menu" parent="sale_promotion_menu" sequence="3" />
+                  parent="sale.menu_sale_config" sequence="3" />
+        <menuitem name="Sale Promotions" id="sale_promotion_child_menu" action="action_sale_promotion_menu"
+                  parent="sale_promotion_menu" sequence="3" />
+
     </data>
 </odoo>

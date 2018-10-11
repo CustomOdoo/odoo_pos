@@ -22,17 +22,17 @@
                         <t t-esc="order.name"/>
                         <t t-esc="moment().format('L LT')"/>
                     </div>
-                    <div style="width: 45%;float: left; ">
+                    <!-- <div style="width: 45%;float: left; ">
                         <img src='/web/binary/company_logo' style="width:100%"/>
-                    </div>
+                    </div> -->
                 </div>
-                <t t-if="widget.pos.company.name">
+                <!-- <t t-if="widget.pos.company.name">
                     <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.name"/></div>
                 </t>
                 <t t-if="widget.pos.company.email">
                     <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.email"/></div>
-                </t>
-                <br />
+                </t> -->
+                <!-- <br />
                 <t t-if="receipt.header">
                     <div style='text-align:center'>
                         <t t-esc="receipt.header" />
@@ -151,7 +151,7 @@
                         <td style='text-align:right'>
                         <t t-esc="widget.format_currency(order.get_change())"/>
                         </td></tr>
-                </table>
+                </table> -->
             </div>
         </t>
     </t>
