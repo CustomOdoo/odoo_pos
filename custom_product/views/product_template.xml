@@ -8,8 +8,22 @@
 
         <field name="arch" type="xml">
 
+            <xpath expr="//page[@name='general_information']//field[@name='company_id']" position="after">
+                <field name="uom_pos_id"/>
+            </xpath>
+
+            <xpath expr="//page[@name='general_information']//field[@name='uom_pos_id']" position="attributes">
+               <field name="uom_pos_id" position="attributes">
+                 <attribute name="invisible">1</attribute>
+               </field>
+            </xpath>
+
             <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
                 <field name="packing_size"/>
+            </xpath>
+
+            <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+                <field name="product_tag"/>
             </xpath>
 
             <!-- <xpath expr="//page[@name='general_information']//field[@name='type']" position="attributes">
