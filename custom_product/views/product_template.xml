@@ -26,6 +26,10 @@
                 <field name="product_tag"/>
             </xpath>
 
+            <xpath expr="//page[@name='general_information']//field[@name='type']" position="after">
+                <field name="barcode"/>
+            </xpath>
+
             <!-- <xpath expr="//page[@name='general_information']//field[@name='type']" position="attributes">
                <field name="type" position="attributes">
                  <attribute name="invisible">1</attribute>

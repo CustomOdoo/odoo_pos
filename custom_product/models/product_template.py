@@ -17,3 +17,4 @@ class CustomProductTemplate(models.Model):
         'product.uom', 'Unit of Measure for POS',
         default=_get_default_uom_id, required=True,
         help="Default Unit of Measure used for all stock operation.")
+	barcode = fields.Char('Barcode')
