@@ -25,11 +25,17 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     warehouse_quantity = fields.Char(compute='_get_warehouse_quantity', string='Quantity per warehouse')
+    warehouse_loose = fields.Char(compute='_get_loose_quantity', string='Loose')
+
+    # def _get_loose_quantity(self):
+    #     for record in self:
+            
 
     def _get_warehouse_quantity(self):
         for record in self:
             warehouse_quantity_text = ''
             product_id = self.env['product.product'].sudo().search([('product_tmpl_id', '=', record.id)])
+            product_uom = product_id.uom_id.factor_inv
             if product_id:
                 quant_ids = self.env['stock.quant'].sudo().search([('product_id','=',product_id[0].id),('location_id.usage','=','internal')])
                 t_warehouses = {}
@@ -57,5 +63,5 @@ class ProductTemplate(models.Model):
 
                 for item in tt_warehouses:
                     if tt_warehouses[item] != 0:
-                        warehouse_quantity_text = warehouse_quantity_text + ' ** ' + item + ': ' + str(tt_warehouses[item])
+                        warehouse_quantity_text = warehouse_quantity_text + ' *** ' + item + ': ' + str(tt_warehouses[item]*product_uom//product_uom) + " ctns " + str(round(tt_warehouses[item]*product_uom%product_uom)) + " pcs " 
                 record.warehouse_quantity = warehouse_quantity_text
