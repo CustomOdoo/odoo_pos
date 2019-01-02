@@ -154,9 +154,9 @@ odoo.define('pos_stock_quantity.pos_stock', function (require) {
             res.forEach(function (item) {
                 var product_id = item.product_id[0];
                 if (!self.db.qty_by_product_id[product_id]) {
-                    self.db.qty_by_product_id[product_id] = item.quantity;
+                    self.db.qty_by_product_id[product_id] = item.quantity_pcs;
                 } else {
-                    self.db.qty_by_product_id[product_id] += item.quantity;
+                    self.db.qty_by_product_id[product_id] += item.quantity_pcs;
                 }
             })
         },
@@ -182,9 +182,9 @@ odoo.define('pos_stock_quantity.pos_stock', function (require) {
                 var product_id = item.product_id[0];
 
                 if (!self.db.qty_by_product_id[product_id]) {
-                    self.db.qty_by_product_id[product_id] = item.quantity;
+                    self.db.qty_by_product_id[product_id] = item.quantity_pcs;
                 } else {
-                    self.db.qty_by_product_id[product_id] += item.quantity;
+                    self.db.qty_by_product_id[product_id] += item.quantity_pcs;
                 }
             });
         },

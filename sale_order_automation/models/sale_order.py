@@ -9,13 +9,13 @@ class SaleOrder(models.Model):
         for order in self:
 
             warehouse=order.warehouse_id
-            if warehouse.is_delivery_set_to_done and order.picking_ids: 
-                for picking in self.picking_ids:
-                    picking.action_confirm()
-                    picking.action_assign()
-                    picking.button_validate()
-                    imediate_rec=imediate_obj.create({'pick_ids': [(4, order.picking_ids.id)]})
-                    imediate_rec.process()
+            # if warehouse.is_delivery_set_to_done and order.picking_ids: 
+            #     for picking in self.picking_ids:
+            #         picking.action_confirm()
+            #         picking.action_assign()
+            #         picking.button_validate()
+            #         imediate_rec=imediate_obj.create({'pick_ids': [(4, order.picking_ids.id)]})
+            #         imediate_rec.process()
 
             self._cr.commit()
 

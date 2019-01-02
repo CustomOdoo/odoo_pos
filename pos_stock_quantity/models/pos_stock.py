@@ -7,6 +7,13 @@ from collections import deque
 class StockQuantity(models.Model):
     _inherit = 'stock.quant'
 
+    quantity_pcs = fields.Float('Pieces', compute='_get_quantity_in_pieces', store=True)
+
+    @api.depends('quantity', 'product_uom_id')
+    def _get_quantity_in_pieces(self):
+        for rec in self:
+            rec.quantity_pcs = rec.quantity*rec.product_uom_id.factor_inv
+
     @api.model
     def get_qty_available(self, location_id, location_ids=None, product_ids=None):
         if location_id:
@@ -14,11 +21,13 @@ class StockQuantity(models.Model):
             all_location = [root_location.id]
             queue = deque([])
             self.location_traversal(queue, all_location, root_location)
-            stock_quant = self.search_read([('location_id', 'in', all_location)], ['product_id', 'quantity', 'location_id'])
+            stock_quant = self.search_read([('location_id', 'in', all_location)], ['product_id', 'quantity', 'quantity_pcs', 'location_id'])
+            print(stock_quant)
             return stock_quant
         else:
             stock_quant = self.search_read([('location_id', 'in', location_ids), ('product_id', 'in', product_ids)],
-                                           ['product_id', 'quantity', 'location_id'])
+                                           ['product_id', 'quantity', 'quantity_pcs', 'location_id'])
+            print(stock_quant)
             return stock_quant
 
     def location_traversal(self, queue, res, root):
