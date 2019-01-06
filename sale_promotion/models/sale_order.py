@@ -101,7 +101,10 @@ class SalePromotion(models.Model):
                         rules = []
                         for i in product_rule_ids:
                             if i['product_id'] == data['product_id']:
-                                if data['qty'] >= i['rule'].min_quantity:
+                                if data['qty'] == i['rule'].min_quantity:
+                                    rules.append(i)
+                                elif data['qty'] > i['rule'].min_quantity:
+                                    qty_x = data['qty']//i['rule'].min_quantity
                                     rules.append(i)
                         if len(rules) > 1:
                             max_qty_rule = max(rules, key=lambda x: x['qty'])
@@ -109,7 +112,7 @@ class SalePromotion(models.Model):
                                 sale_line_obj.create({
                                     'name': line.product_id.name,
                                     'price_unit': 0,
-                                    'product_uom_qty': line.quantity,
+                                    'product_uom_qty': line.quantity*qty_x,
                                     'order_id': order.id,
                                     'discount': 0.0,
                                     'product_uom': line.product_id.uom_id.id,
@@ -123,7 +126,7 @@ class SalePromotion(models.Model):
                                     sale_line_obj.create({
                                         'name': line.product_id.name,
                                         'price_unit': 0,
-                                        'product_uom_qty': line.quantity,
+                                        'product_uom_qty': line.quantity*qty_x,
                                         'order_id': order.id,
                                         'discount': 0.0,
                                         'product_uom': line.product_id.uom_id.id,
@@ -140,6 +143,7 @@ class SalePromotion(models.Model):
                         for r in category_rule_ids:
                             if categ['category'] == r['category']:
                                 if categ['qty'] >= r['rule'].min_quantity:
+                                    categ_q = categ['qty']//r['rule'].min_quantity
                                     rules.append(r)
                         if len(rules) > 1:
                             max_qty_rule = max(rules, key=lambda x: x['qty'])
@@ -147,7 +151,7 @@ class SalePromotion(models.Model):
                                 sale_line_obj.create({
                                     'name': line.product_id.name,
                                     'price_unit': 0,
-                                    'product_uom_qty': line.quantity,
+                                    'product_uom_qty': line.quantity*categ_q,
                                     'order_id': order.id,
                                     'discount': 0.0,
                                     'product_uom': line.product_id.uom_id.id,
@@ -161,7 +165,7 @@ class SalePromotion(models.Model):
                                     sale_line_obj.create({
                                         'name': line.product_id.name,
                                         'price_unit': 0,
-                                        'product_uom_qty': line.quantity,
+                                        'product_uom_qty': line.quantity*categ_q,
                                         'order_id': order.id,
                                         'discount': 0.0,
                                         'product_uom': line.product_id.uom_id.id,
