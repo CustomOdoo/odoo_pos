@@ -7,6 +7,8 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 class PurchaseOrderLineInherit(models.Model):
     _inherit = 'purchase.order.line'
 
+    partner_ref = fields.Char(required=True)
+
     @api.onchange('product_qty', 'product_uom')
     def _onchange_quantity(self):
         if not self.product_id:
