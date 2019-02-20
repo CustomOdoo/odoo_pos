@@ -5,7 +5,7 @@
 		 This will replace everything withing tr (including tr)-->
 
 
-            <!-- <xpath expr="//table[@class='table table-condensed mt48'][2]" position="replace">
+            <xpath expr="//table[@class='table table-condensed mt48'][3]" position="replace">
                 <table class="table table-condensed mt48" t-if="not o.move_line_ids">
                     <thead>
                         <tr>
@@ -27,8 +27,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </xpath> -->
-            <xpath expr="//div[@class='page']" position="replace">
+            </xpath>
+            <!-- <xpath expr="//div[@class='page']" position="replace">
                 <div class="page">
                     <div class="row" name="customer_address">
                         <div class="col-xs-4 pull-right">
@@ -82,7 +82,7 @@
                                 <th><strong>Quantity</strong></th>
                             </tr>
                         </thead>
-                        <!-- <tbody>
+                        <tbody>
                             <tr t-foreach="o.move_lines" t-as="move">
                                 <td><span t-field="move.product_id.barcode"/></td>
                                 <td><span t-field="move.product_id"/></td>
@@ -92,7 +92,7 @@
                                     <span t-field="move.product_uom"/>
                                 </td>
                             </tr>
-                        </tbody> -->
+                        </tbody>
                     </table>
                     <table class="table table-condensed mt48" t-if="o.move_line_ids">
                         <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_production_lot"/>
@@ -151,7 +151,7 @@
                         </t>
                     </p>
                 </div>
-            </xpath>
+            </xpath> -->
             
         </template>
     </data>
