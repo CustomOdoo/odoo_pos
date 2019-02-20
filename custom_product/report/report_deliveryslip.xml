@@ -98,8 +98,8 @@
                         <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_production_lot"/>
                         <thead>
                             <tr>
-                                <th><strong>SKU</strong></th>
                                 <th><strong>Product</strong></th>
+                                <th><strong>SKU</strong></th>
                                 <th><strong>Packing Size</strong></th>
                                 <th><strong>Quantity</strong></th>
                                 <!-- <th><strong>Product</strong></th>
@@ -111,7 +111,6 @@
                         </thead>
                         <tbody>
                             <tr t-foreach="o.move_line_ids" t-as="move_line">
-                                <td><span t-field="move_line.product_id.barcode"/></td>
                                 <td>
                                     <span t-field="move_line.product_id"/>
                                     <p t-if="o.picking_type_code == 'outgoing'">
@@ -121,6 +120,7 @@
                                         <span t-field="move_line.product_id.sudo().description_pickingin"/>
                                     </p>
                                 </td>
+                                <td><span t-field="move_line.product_id.barcode"/></td>
                                 <td><span t-field="move_line.product_id.packing_size"/></td>
                                 <!-- <t t-if="has_serial_number">
                                    <td>
