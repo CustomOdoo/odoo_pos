@@ -31,6 +31,7 @@
         'views/product_template.xml',
         'views/stock_picking_view.xml',
         'report/report_deliveryslip.xml',
+        'views/account_invoice_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
