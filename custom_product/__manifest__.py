@@ -23,13 +23,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product', 'point_of_sale', 'purchase'],
+    'depends': ['base', 'product', 'point_of_sale', 'purchase', 'stock'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/product_template.xml',
         'views/stock_picking_view.xml',
+        'report/report_deliveryslip.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
