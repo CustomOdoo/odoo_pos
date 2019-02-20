@@ -5,7 +5,7 @@
 		 This will replace everything withing tr (including tr)-->
 
 
-            <xpath expr="//table[@class='table table-condensed mt48'][3]" position="replace">
+            <!-- <xpath expr="//table[@class='table table-condensed mt48'][2]" position="replace">
                 <table class="table table-condensed mt48" t-if="not o.move_line_ids">
                     <thead>
                         <tr>
@@ -27,8 +27,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </xpath>
-            <!-- <xpath expr="//div[@class='page']" position="replace">
+            </xpath> -->
+            <xpath expr="//div[@class='page']" position="replace">
                 <div class="page">
                     <div class="row" name="customer_address">
                         <div class="col-xs-4 pull-right">
@@ -98,15 +98,20 @@
                         <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_production_lot"/>
                         <thead>
                             <tr>
+                                <th><strong>SKU</strong></th>
                                 <th><strong>Product</strong></th>
+                                <th><strong>Packing Size</strong></th>
+                                <th><strong>Quantity</strong></th>
+                                <!-- <th><strong>Product</strong></th>
                                 <th name="lot_serial" t-if="has_serial_number">
                                     Lot/Serial Number
                                 </th>
-                                <th class="text-center"><strong>Quantity</strong></th>
+                                <th class="text-center"><strong>Quantity</strong></th> -->
                             </tr>
                         </thead>
                         <tbody>
                             <tr t-foreach="o.move_line_ids" t-as="move_line">
+                                <td><span t-field="move_line.product_id.barcode"/></td>
                                 <td>
                                     <span t-field="move_line.product_id"/>
                                     <p t-if="o.picking_type_code == 'outgoing'">
@@ -116,7 +121,8 @@
                                         <span t-field="move_line.product_id.sudo().description_pickingin"/>
                                     </p>
                                 </td>
-                                <t t-if="has_serial_number">
+                                <td><span t-field="move_line.product_id.packing_size"/></td>
+                                <!-- <t t-if="has_serial_number">
                                    <td>
                                         <table width="100%">
                                             <tr>
@@ -134,7 +140,7 @@
                                             </tr>
                                         </table>
                                   </td>
-                                </t>
+                                </t> -->
                                 <td class="text-center">
                                     <span t-field="move_line.qty_done"/>
                                     <span t-field="move_line.product_uom_id"/>
@@ -151,7 +157,7 @@
                         </t>
                     </p>
                 </div>
-            </xpath> -->
+            </xpath>
             
         </template>
     </data>
